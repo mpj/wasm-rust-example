@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "./setup_rust.sh",
     "compile": "rustc +nightly --target wasm32-unknown-unknown -O ./fn.rs --out-dir ./build --crate-type=cdylib",
     "gc": "wasm-gc ./build/fn.wasm ./build/fn-gc.wasm",
     "build": "npm-run-all compile gc",
