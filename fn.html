@@ -1,0 +1,12 @@
+<html>
+</body>
+<script>
+  fetch('http://127.0.0.1:8080/build/fn-gc.wasm')
+    .then(response => response.arrayBuffer())
+    .then(bytes => WebAssembly.instantiate(bytes, {}))
+    .then(results => {
+        alert(results.instance.exports.add_one(41))
+    })
+</script>
+</body>
+</html>

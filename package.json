@@ -1,0 +1,19 @@
+{
+  "name": "wasm-rust",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "rustc +nightly --target wasm32-unknown-unknown -O ./fn.rs --out-dir ./build --crate-type=cdylib",
+    "gc": "wasm-gc ./build/fn.wasm ./build/fn-gc.wasm",
+    "build": "npm-run-all compile gc",
+    "start": "http-server --cors",
+    "open": "open fn.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "npm-run-all": "^4.1.2"
+  }
+}
